@@ -1,0 +1,71 @@
+<?php
+
+declare(strict_types=1);
+/**
+ * Copyright (c) Be Delightful , Distributed under the MIT software license
+ */
+
+namespace Delightful\RuleEngineCore\Standards\Admin;
+
+use Delightful\RuleEngineCore\Standards\Exception\ConfigurationException;
+
+/**
+ * @TODO: Not all enum definitions are complete yet
+ * String is an additional custom type
+ */
+class InputType
+{
+    public const String = 1;
+
+    public const Stream = 2;
+
+    public string $name;
+
+    public int $value;
+
+    //    public function __construct(int $value)
+    //    {
+    //        switch ($value) {
+    //            case static::String:
+    //                $this->name = 'String';
+    //                $this->value = static::String;
+    //                break;
+    //            case static::Stream:
+    //                $this->name = 'Stream';
+    //                $this->value = static::Stream;
+    //                break;
+    //            default:
+    //                throw new ConfigurationException('Invalid enumeration value:' . static::class);
+    //        }
+    //    }
+
+    /**
+     * @return InputType[]
+     */
+    public static function cases(): array
+    {
+        return [
+            static::from(static::String),
+            static::from(static::Stream),
+        ];
+    }
+
+    public static function from(int $value): static
+    {
+        $inputType = new static();
+        switch ($value) {
+            case static::String:
+                $inputType->name = 'String';
+                $inputType->value = static::String;
+                break;
+            case static::Stream:
+                $inputType->name = 'Stream';
+                $inputType->value = static::Stream;
+                break;
+            default:
+                throw new ConfigurationException('Invalid enumeration value:' . static::class);
+        }
+
+        return $inputType;
+    }
+}
