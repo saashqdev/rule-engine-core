@@ -1,7 +1,7 @@
 {
   "name": "bedelightful/rule-engine-core",
   "type": "library",
-  "license": "Apache-2.0",
+  "license": "Apache License 2.0",
   "keywords": [
     "php",
     "hyperf"
@@ -9,7 +9,7 @@
   "description": "",
   "autoload": {
     "psr-4": {
-      "BeDelightful\\RuleEngineCore\\": "src/"
+      "Delightful\\RuleEngineCore\\": "src/"
     }
   },
   "autoload-dev": {
